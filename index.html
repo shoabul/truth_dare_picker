@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Truth or Dare</title>
+
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+
+<body>
+
+    <!-- Decorative Background -->
+    <div class="background-shape shape-one"></div>
+    <div class="background-shape shape-two"></div>
+    <div class="background-shape shape-three"></div>
+
+
+    <main class="game-wrapper">
+
+
+
+        <header class="game-header">
+
+            <div class="brand">
+
+                <span class="brand-truth">
+                    TRUTH
+                </span>
+
+                <span class="brand-or">
+                    OR
+                </span>
+
+                <span class="brand-dare">
+                    DARE
+                </span>
+
+            </div>
+
+
+            <div class="game-stats">
+
+                <div class="stat">
+
+                    <span class="stat-label">
+                        ROUND
+                    </span>
+
+                    <strong id="round-display">
+                        01
+                    </strong>
+
+                </div>
+
+
+                <div class="stat">
+
+                    <span class="stat-label">
+                        STREAK
+                    </span>
+
+                    <strong id="streak-display">
+                        00
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+
+
+        <section id="setup-screen" class="setup-screen">
+
+            <div class="hero-character">
+
+                <div class="character-face">
+                    😈
+                </div>
+
+                <div class="character-shadow"></div>
+
+            </div>
+
+
+            <div class="hero-text">
+
+                <div class="tiny-label">
+                    ⚡ PARTY MODE ACTIVATED ⚡
+                </div>
+
+                <h1>
+                    TRUTH
+                    <span>OR</span>
+                    DARE?
+                </h1>
+
+                <p>
+                    Things are about to get
+                    <strong>awkward.</strong>
+                </p>
+
+            </div>
+
+
+            <div class="start-box">
+
+                <label for="player-name">
+                    WHO'S PLAYING?
+                </label>
+
+                <div class="name-input-row">
+
+                    <input id="player-name" type="text" placeholder="Your name..." autocomplete="off" maxlength="20">
+
+                    <button id="start-btn" class="start-button">
+                        LET'S GO!
+                        <span>→</span>
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div class="funny-tip">
+
+                <span>💡</span>
+
+                No cheating.
+                We are watching.
+
+            </div>
+
+        </section>
+
+
+
+
+        <section id="game-screen" class="game-screen hidden">
+
+            <!-- Player -->
+            <div class="player-bar">
+
+                <div class="player">
+
+                    <div class="player-avatar">
+                        😎
+                    </div>
+
+                    <div>
+
+                        <span>
+                            YOUR TURN
+                        </span>
+
+                        <strong id="player-display">
+                            Player
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div id="game-message" class="game-message">
+                    Pick your poison...
+                </div>
+
+            </div>
+
+
+
+
+            <div class="choice-section">
+
+                <div class="section-title">
+
+                    <span>
+                        WHAT ARE YOU FEELING?
+                    </span>
+
+                    <h2>
+                        Choose your weapon.
+                    </h2>
+
+                </div>
+
+
+                <div class="choice-cards">
+
+
+
+                    <button id="truth-btn" class="choice-card truth-card">
+
+                        <div class="card-top">
+
+                            <span class="card-number">
+                                01
+                            </span>
+
+                            <span class="card-badge">
+                                SAFE...ISH
+                            </span>
+
+                        </div>
+
+
+                        <div class="choice-character truth-character">
+                            😇
+                        </div>
+
+
+                        <div class="choice-info">
+
+                            <h3>
+                                TRUTH
+                            </h3>
+
+                            <p>
+                                Tell the truth.
+                                No hiding.
+                            </p>
+
+                        </div>
+
+
+                        <div class="card-footer">
+
+                            <span>
+                                TAP TO CHOOSE
+                            </span>
+
+                            <span>
+                                →
+                            </span>
+
+                        </div>
+
+                    </button>
+
+
+
+
+                    <button id="dare-btn" class="choice-card dare-card">
+
+                        <div class="card-top">
+
+                            <span class="card-number">
+                                02
+                            </span>
+
+                            <span class="card-badge">
+                                GOOD LUCK
+                            </span>
+
+                        </div>
+
+
+                        <div class="choice-character dare-character">
+                            😈
+                        </div>
+
+
+                        <div class="choice-info">
+
+                            <h3>
+                                DARE
+                            </h3>
+
+                            <p>
+                                Do it.
+                                Don't be boring.
+                            </p>
+
+                        </div>
+
+
+                        <div class="card-footer">
+
+                            <span>
+                                TAP TO CHOOSE
+                            </span>
+
+                            <span>
+                                →
+                            </span>
+
+                        </div>
+
+                    </button>
+
+                </div>
+
+
+
+
+                <div class="pick-zone">
+
+                    <div id="selected-label" class="selected-label">
+                        CHOOSE TRUTH OR DARE
+                    </div>
+
+
+                    <button id="pick-btn" class="pick-button" disabled>
+
+                        <span class="pick-icon">
+                            🎲
+                        </span>
+
+                        <span>
+                            PICK!
+                        </span>
+
+                    </button>
+
+
+                    <p id="pick-hint">
+                        Your fate is waiting...
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+
+            <div id="result-card" class="result-card hidden">
+
+                <div class="result-decoration">
+                    ✦
+                </div>
+
+
+                <div class="result-header">
+
+                    <div>
+
+                        <span class="result-eyebrow">
+                            YOU GOT
+                        </span>
+
+                        <h2 id="type-label">
+                            TRUTH
+                        </h2>
+
+                    </div>
+
+
+                    <div class="result-round">
+                        ROUND
+                        <strong id="result-round">
+                            01
+                        </strong>
+                    </div>
+
+                </div>
+
+
+                <div class="result-content">
+
+                    <div class="result-emoji">
+                        🤭
+                    </div>
+
+                    <p id="question">
+                        Your challenge
+                        will appear here.
+                    </p>
+
+                </div>
+
+
+                <div class="result-footer">
+
+                    <span id="result-message">
+                        Be honest...
+                    </span>
+
+                    <button id="next-btn" class="next-button">
+                        NEXT TURN
+                        <span>→</span>
+                    </button>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="bottom-note">
+                <span>⚠️</span>
+                Remember: what happens here
+                stays here.
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script type="module" src="./dist/script.js"></script>
+
+</body>
+
+</html>
